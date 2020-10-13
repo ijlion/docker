@@ -42,11 +42,11 @@ RUN set -ex \
     php7-sysvshm \
     php7-sysvmsg \
     php7-sysvsem \
-    php7-ssh2 \
     php7-xml \
     php7-xmlreader \
     php7-zip \
     php7-zlib \
+    && mv /etc/php7/conf.d/00_ds.ini /etc/php7/conf.d/10_ds.ini \
     && ln -sf /usr/bin/php7 /usr/bin/php \
     && apk del --purge *-dev \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /usr/share/php7 \
