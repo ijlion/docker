@@ -18,6 +18,7 @@ RUN set -ex && apk add --no-cache \
     php7-xmlreader \
     php7-zip \
     php7-zlib \
+    && ln -sf /usr/bin/php7 /usr/bin/php \
     && apk del --purge *-dev \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /usr/share/php7
 
