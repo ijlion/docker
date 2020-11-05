@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+if [ $# != 0 ]; then
+    echo "Installs extensions:" && apk update
+
+    for EXT in $@; do
+        if [ -n EXT ]; then
+            echo "----> $EXT" && apk add --no-cache "php7-$EXT"
+        fi
+    done
+
+    echo "----> Cleaning" && apk del --purge *-dev && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /usr/share/php7
+else
+    echo "Extensions not defined."
+fi
